@@ -114,7 +114,7 @@
         <div className="flex mb-16">
 
           <input
-            className="flex-grow border border-gray-300 rounded-lg px-4 py-3 text-[15px] outline-none focus:ring-2 focus:ring-blue-500"
+            className="grow border border-gray-300 rounded-lg px-4 py-3 text-[15px] outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Send a message to Chatbot"
             value={inputText}
             onChange={saveInputText}
@@ -153,13 +153,13 @@
           {sender === 'robot' && (
             <img
               src="chatbot.png"
-              className="w-[45px]"
+              className="w-11.25"
             />
           )}
 
           {/* chat bubble */}
           <div
-            className="bg-gray-200 px-5 py-4 rounded-lg mx-2 mb-5 max-w-[300px]"
+            className="bg-gray-200 px-5 py-4 rounded-lg mx-2 mb-5 max-w-75"
           >
             {message}
           </div>
@@ -168,7 +168,7 @@
           {sender === 'user' && (
             <img
               src="user.png"
-              className="w-[45px]"
+              className="w-11.25"
             />
           )}
 
@@ -197,7 +197,7 @@
 
         <div
           ref={chatMessagesRef}
-          className="flex-grow mt-5 overflow-y-scroll [scrollbar-width:none]"
+          className="grow mt-5 overflow-y-scroll scrollbar-none"
         >
 
           {chatMessages.map((chatMessage) => (
@@ -223,7 +223,7 @@
 
       return (
 
-        <div className="max-w-[600px] mx-auto h-screen flex flex-col">
+        <div className="max-w-150 mx-auto h-screen flex flex-col">
 
           <ChatMessages
             chatMessages={chatMessages}
