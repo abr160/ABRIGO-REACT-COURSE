@@ -2,18 +2,15 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { Header } from '../../components/Header';
 import { ProductsGrid } from './ProductsGrid';
+import './HomePage.css';
 
-export function HomePage({ cart }) {
+export function HomePage({ cart, loadCart }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
     const getHomeData = async () => {
-      try {
-        const response = await axios.get('/api/products');
-        setProducts(response.data);
-      } catch (error) {
-        console.error('Error fetching products:', error);
-      }
+      const response = await axios.get('/api/products');
+      setProducts(response.data);
     };
 
     getHomeData();
@@ -21,14 +18,13 @@ export function HomePage({ cart }) {
 
   return (
     <>
-      {/* Header */}
+      <title>Ecommerce Project</title>
+
       <Header cart={cart} />
 
-      {/* Home Page */}
-      <main className="mt-15">
-        <ProductsGrid products={products} />
-      </main>
+      <div className="home-page">
+        <ProductsGrid products={products} loadCart={loadCart} />
+      </div>
     </>
   );
 }
-
